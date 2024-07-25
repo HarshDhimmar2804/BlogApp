@@ -35,7 +35,6 @@ const userSlice = createSlice({
       state.loading = false;
       state.error = action.payload;
     },
-<<<<<<< HEAD
     deleteUserStart: (state) => {
       state.loading = true;
       state.error = null;
@@ -54,8 +53,6 @@ const userSlice = createSlice({
       state.error = null;
       state.loading = false;
     },
-=======
->>>>>>> parent of 57b3c7b (complate delete user account functionality)
   },
 });
 
@@ -66,12 +63,9 @@ export const {
   updateStart,
   updateSuccess,
   updateFailure,
-<<<<<<< HEAD
   deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
   signoutSuccess,
-=======
->>>>>>> parent of 57b3c7b (complate delete user account functionality)
 } = userSlice.actions;
 export default userSlice.reducer;
