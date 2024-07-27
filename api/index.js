@@ -9,7 +9,7 @@ import helmet from "helmet";
 dotenv.config();
 
 mongoose
-  .connect(process.env.MONGO)
+  .connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB is connected");
   })
