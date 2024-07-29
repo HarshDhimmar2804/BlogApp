@@ -1,4 +1,3 @@
-import React from "react";
 import { Sidebar } from "flowbite-react";
 import { HiUser, HiArrowSmRight } from "react-icons/hi";
 import { useEffect, useState } from "react";

@@ -272,7 +272,7 @@ export default function DashProfile() {
             </h3>
             <div className="flex justify-center gap-4">
               <Button color="failure" onClick={handleDeleteUser}>
-                Yes, I'm sure
+                Yes, I&apos;m sure
               </Button>
               <Button color="grey" onClick={() => setShowModel(false)}>
                 No, cancel
