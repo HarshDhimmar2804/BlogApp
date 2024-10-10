@@ -1,5 +1,4 @@
 import { Button } from "flowbite-react";
-import React from "react";
 import { AiFillGoogleCircle } from "react-icons/ai";
 import { GoogleAuthProvider, signInWithPopup, getAuth } from "firebase/auth";
 import { app } from "../firebase";
@@ -17,8 +16,8 @@ export default function OAuth() {
     try {
       const resultFromGoogle = await signInWithPopup(auth, provider);
       const res = await fetch("api/auth/google", {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: resultFromGoogle.user.displayName,
           email: resultFromGoogle.user.email,
