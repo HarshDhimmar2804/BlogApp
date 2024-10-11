@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
+body{
+  height: 100vh;
+}
+
+.ql-editor{
+  font-size: 1.05rem;
+}
+/* ::-webkit-scrollbar {
   width: 6px;
 }
 ::-webkit-scrollbar-track {
@@ -11,4 +18,4 @@
 ::-webkit-scrollbar-thumb {
   background: #ffffff;
   border-radius: 7px;
-}
+} */
