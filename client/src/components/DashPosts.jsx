@@ -8,7 +8,7 @@ export default function DashPosts() {
   const { currentUser } = useSelector((state) => state.user);
   const [userPosts, setUserPosts] = useState([]);
   const [showMore, setShowMore] = useState(true);
-  const [showModel, setShowModel] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [postIdToDelete, setPostIdToDelete] = useState("");
   useEffect(() => {
     const fetchPosts = async () => {
@@ -25,10 +25,10 @@ export default function DashPosts() {
         console.log(error);
       }
     };
-    if (currentUser.isAdmin) {
+    if (currentUser?.isAdmin) {
       fetchPosts();
     }
-  }, [currentUser._id]);
+  }, [currentUser]);
   const handleShowMore = async () => {
     const startIndex = userPosts.length;
     try {
@@ -47,13 +47,13 @@ export default function DashPosts() {
     }
   };
   const handleDeletePost = async () => {
-    setShowModel(false);
+    setShowModal(false);
     try {
       const res = await fetch(
         `/api/post/deletepost/${postIdToDelete}/${currentUser._id}`,
         { method: "DELETE" }
       );
-      const data = res.json();
+      const data = await res.json();
       if (!res.ok) {
         console.log(data.message);
       } else {
@@ -107,7 +107,7 @@ export default function DashPosts() {
                   <Table.Cell>
                     <span
                       onClick={() => {
-                        setShowModel(true);
+                        setShowModal(true);
                         setPostIdToDelete(post._id);
                       }}
                       className="font-medium text-red-500 hover:underline cursor-pointer"
@@ -140,8 +140,8 @@ export default function DashPosts() {
         <p>You have no posts yet!</p>
       )}
       <Modal
-        show={showModel}
-        onClose={() => setShowModel(false)}
+        show={showModal}
+        onClose={() => setShowModal(false)}
         popup
         size="md"
       >
@@ -156,7 +156,7 @@ export default function DashPosts() {
               <Button color="failure" onClick={handleDeletePost}>
                 Yes, I&apos;m sure
               </Button>
-              <Button color="grey" onClick={() => setShowModel(false)}>
+              <Button color="grey" onClick={() => setShowModal(false)}>
                 No, cancel
               </Button>
             </div>
