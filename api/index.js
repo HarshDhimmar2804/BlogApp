@@ -30,8 +30,8 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       scriptSrc: ["'self'", "https://apis.google.com"],
-      connectSrc: ["'self'", "https://www.googleapis.com"],
-      // Add more directives as needed
+      connectSrc: ["'self'", "https://identitytoolkit.googleapis.com"], // Allow Firebase connections
+      // Add any other needed sources
     },
   })
 );
