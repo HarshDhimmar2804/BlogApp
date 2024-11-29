@@ -30,6 +30,17 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "https://apis.google.com"],
+      connectSrc: ["'self'", "https://www.googleapis.com"],
+      // Add more directives as needed
+    },
+  })
+);
+
 app.use(express.json());
 app.use(cookieParser());
 
