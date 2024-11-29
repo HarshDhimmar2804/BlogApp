@@ -25,6 +25,7 @@ const __dirname = path.resolve();
 
 const app = express();
 
+app.use(helmet.crossOriginOpenerPolicy({ policy: "same-origin-allow-popups" }));
 app.use(
   helmet.contentSecurityPolicy({
     directives: {
