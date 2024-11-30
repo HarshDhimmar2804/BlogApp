@@ -30,7 +30,7 @@ app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
-      "script-src": ["'self'", "'unsafe-inline'", "example.com"],
+      "script-src": ["'self'", "'unsafe-inline'", "https://apis.google.com"],
       "img-src": ["'self'", "https: data:"]
     }
   })
