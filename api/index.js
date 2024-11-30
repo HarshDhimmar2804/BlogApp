@@ -30,11 +30,12 @@ app.use(
   helmet.contentSecurityPolicy({
     useDefaults: true,
     directives: {
+      defaultSrc: ["'self'"],
       "script-src": ["'self'", "'unsafe-inline'", "https://apis.google.com"],
-      "img-src": ["'self'", "https: data:"]
-    }
+      "img-src": ["'self'", "https: data:"],
+    },
   })
-)
+);
 
 app.use(express.json());
 app.use(cookieParser());
@@ -61,7 +62,6 @@ app.use((req, res, next) => {
   );
   next();
 });
-
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
