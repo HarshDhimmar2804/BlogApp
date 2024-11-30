@@ -32,6 +32,7 @@ app.use(
     directives: {
       defaultSrc: ["'self'"],
       "script-src": ["'self'", "'unsafe-inline'", "https://apis.google.com"],
+      connectSrc: ["'self'", "https://identitytoolkit.googleapis.com"],
       "img-src": ["'self'", "https: data:"],
     },
   })
