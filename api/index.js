@@ -28,14 +28,13 @@ const app = express();
 // app.use(helmet.crossOriginOpenerPolicy({ policy: "same-origin-allow-popups" }));
 app.use(
   helmet.contentSecurityPolicy({
+    useDefaults: true,
     directives: {
-      defaultSrc: ["'self'"],
-      scriptSrc: ["'self'", "https://apis.google.com"],
-      connectSrc: ["'self'", "https://identitytoolkit.googleapis.com"], // Allow Firebase connections
-      // Add any other needed sources
-    },
+      "script-src": ["'self'", "'unsafe-inline'", "example.com"],
+      "img-src": ["'self'", "https: data:"]
+    }
   })
-);
+)
 
 app.use(express.json());
 app.use(cookieParser());
