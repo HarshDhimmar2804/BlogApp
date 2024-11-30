@@ -33,7 +33,11 @@ app.use(
       defaultSrc: ["'self'"],
       frameSrc: ["'self'", "https://blogapp-93649.firebaseapp.com"],
       "script-src": ["'self'", "'unsafe-inline'", "https://apis.google.com"],
-      connectSrc: ["'self'", "https://identitytoolkit.googleapis.com"],
+      connectSrc: [
+        "'self'",
+        "https://identitytoolkit.googleapis.com",
+        "https://firebasestorage.googleapis.com",
+      ],
       "img-src": ["'self'", "https: data:"],
     },
   })
