@@ -31,6 +31,7 @@ app.use(
     useDefaults: true,
     directives: {
       defaultSrc: ["'self'"],
+      frameSrc: ["'self'", "https://blogapp-93649.firebaseapp.com"],
       "script-src": ["'self'", "'unsafe-inline'", "https://apis.google.com"],
       connectSrc: ["'self'", "https://identitytoolkit.googleapis.com"],
       "img-src": ["'self'", "https: data:"],
