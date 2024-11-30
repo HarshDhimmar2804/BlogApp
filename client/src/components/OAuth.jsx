@@ -10,11 +10,15 @@ export default function OAuth() {
   const auth = getAuth(app);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleGoogleClick = async () => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
+
     try {
       const resultFromGoogle = await signInWithPopup(auth, provider);
+
+      // Send the result data to your backend
       const res = await fetch("api/auth/google", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -24,15 +28,27 @@ export default function OAuth() {
           googlePhotoUrl: resultFromGoogle.user.photoURL,
         }),
       });
+
       const data = await res.json();
+      
       if (res.ok) {
         dispatch(signInSuccess(data));
         navigate("/");
+      } else {
+        // Handle unsuccessful response
+        console.error("Error during sign-in:", data);
       }
     } catch (error) {
-      console.log(error);
+      if (error.code === 'auth/popup-closed-by-user') {
+        console.log("User closed the popup before completing the sign-in.");
+        alert("You closed the sign-in popup before completing the sign-in process. Please try again.");
+      } else {
+        console.error("Sign-in error:", error.message);
+        alert("Something went wrong with the sign-in. Please try again.");
+      }
     }
   };
+
   return (
     <Button
       type="button"
