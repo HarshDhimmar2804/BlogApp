@@ -10,6 +10,7 @@ export default function OAuth() {
   const auth = getAuth(app);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const handleGoogleClick = async () => {
     const provider = new GoogleAuthProvider();
     provider.setCustomParameters({ prompt: "select_account" });
@@ -28,11 +29,19 @@ export default function OAuth() {
       if (res.ok) {
         dispatch(signInSuccess(data));
         navigate("/");
+      } else {
+        console.error("Failed to sign in: ", data);
       }
     } catch (error) {
-      console.log(error);
+      if (error.code === "auth/popup-closed-by-user") {
+        console.log("Popup closed by the user before completing sign-in.");
+        alert("You closed the popup. Please try again to sign in.");
+      } else {
+        console.error("An error occurred during sign-in: ", error.message);
+      }
     }
   };
+
   return (
     <Button
       type="button"
