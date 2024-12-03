@@ -54,11 +54,6 @@ Ensure the following are installed:
    cd BlogApp
 
 
-
-
-
-
-
 ## 🤝 Contribution
 
 Contributions are welcome! Feel free to fork the repositories and submit pull requests.
