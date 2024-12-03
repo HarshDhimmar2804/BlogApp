@@ -52,3 +52,21 @@ Ensure the following are installed:
    ```bash
    git clone https://github.com/HarshDhimmar2804/BlogApp.git
    cd BlogApp
+
+
+
+
+
+
+
+## 🤝 Contribution
+
+Contributions are welcome! Feel free to fork the repositories and submit pull requests.
+
+## 📬 Contact
+
+For any questions or inquiries, please contact me:
+- **LinkedIn**: www.linkedin.com/in/harshdhimmar
+- **Email**: work.harshdhimmar@gmail.com
+
+You can also open an issue in the repositories if you have any questions or suggestions.
